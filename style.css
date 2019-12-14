@@ -14,7 +14,8 @@
   --blue: #00b9eb;
   --red: #ec1848;
   --border-radius: 4px;
-  --box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075);
+  --box-shadow-1: 0 0 10px -2px rgba(0, 0, 0, 0.075);
+  /* --box-shadow-2: 0 0 1px 0 rgb(0, 0, 0); */
 }
 
 * {
@@ -58,6 +59,12 @@ body {
   font: 16px/1.5 "Lato", sans-serif;
 }
 
+/* ------------------- */
+
+.card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+}
 
 /* HEADER STYLES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -196,12 +203,13 @@ body {
 }
 
 .search-and-user {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-column-gap: 50px;
-  align-items: center;
-  background: var(--page-content-bgColor);
+  /* display: grid;
+grid-template-columns: 1fr auto;
+grid-column-gap: 50px;
+align-items: center; */
+  /* background: var(--page-content-bgColor); */
   margin-bottom: 30px;
+  box-shadow: var(--box-shadow);
 }
 
 .search-and-user form {
@@ -217,7 +225,7 @@ body {
   background: var(--page-content-blockColor);
   color: var(--white);
   border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  /* box-shadow: var(--box-shadow); */
 }
 
 .search-and-user ::placeholder {
@@ -377,9 +385,11 @@ body {
 }
 
 @media screen and (max-width: 400px) {
-  .page-content .grid>article {
+  .page-content .grid>section {
     grid-column: 1 / -1;
   }
+
+
 }
 
 
@@ -422,13 +432,17 @@ body {
     left: 40px;
     width: calc(100% - 40px);
   }
+
+  .page-footer {
+    position: static;
+  }
 }
 
 
 /* FOOTER
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .page-footer {
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   right: 0;
   font-size: 0.85rem;
@@ -442,16 +456,22 @@ body {
   color: var(--red);
 }
 
-#dial {
-  display: flex;
-  margin-top: 50px;
-  margin-bottom: 50px;
+#contacts li {
+  padding: 15px;
+}
+
+#contacts span svg {
+  width: 30px;
+  height: 17px;
+  display: inline-block
 }
 
 #numbers {
+  margin: 0 auto;
   width: 300px;
   height: 300px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center
 }
@@ -461,10 +481,71 @@ body {
   border: 2px solid #ccc;
   font-family: Arial, sans-serif;
   font-size: 20px;
-  margin: 15px;
+  margin: 0;
   min-height: 50px;
   width: 50px;
   line-height: 10px;
   border-radius: 50%;
 
+}
+
+#dialier {
+  display: flex;
+  align-items: start
+}
+
+#dial-input {
+  padding: 10px;
+  margin: 0 auto;
+  width: 70%
+}
+
+#dial-input select,
+#dial-input button {
+  border: none
+}
+
+#dial-input button svg {
+  width: 30px;
+  height: 17px;
+}
+
+#dial-input input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.numbers {
+  margin: auto
+}
+
+.call {
+  margin: auto
+}
+
+#phone h2,
+#sms h2 {
+  margin-top: 5px;
+  padding-left: 15px
+}
+
+#sms-form {
+  padding: 5px;
+  margin: 5px
+}
+
+#sms-form input,
+#sms-form textarea {
+  display: block;
+  width: 100%
+}
+
+#sms-form input:first-child,
+#sms-form input:last-child {
+  margin-bottom: 5px
+}
+
+#sms-form textarea {
+  height: 100px;
 }
